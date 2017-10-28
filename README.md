@@ -1,12 +1,12 @@
 
 # Face Generation
-In this project, you'll use generative adversarial networks to generate new images of faces.
+In this project, I've used generative adversarial networks to generate new images of faces.
 ### Get the Data
-You'll be using two datasets in this project:
+This project uses two datasets:
 - MNIST
 - CelebA
 
-Since the celebA dataset is complex and you're doing GANs in a project for the first time, we want you to test your neural network on MNIST before CelebA.  Running the GANs on MNIST will allow you to see how well your model trains sooner.
+The neural network on MNIST before CelebA.  Running the GANs on MNIST will allow you to see how well your model trains sooner.
 
 If you're using [FloydHub](https://www.floydhub.com/), set `data_dir` to "/input" and use the [FloydHub data ID](http://docs.floydhub.com/home/using_datasets/) "R5KrjnANiKVhLWAkpXhNBe".
 
