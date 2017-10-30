@@ -2,11 +2,11 @@
 # Face Generation
 In this project, I've used generative adversarial networks to generate new images of faces.
 ### Get the Data
-This project uses two datasets:
+This project useed two datasets:
 - MNIST
 - CelebA
 
-The neural network on MNIST before CelebA.  Running the GANs on MNIST will allow you to see how well your model trains sooner.
+The neural network on MNIST before CelebA.  Running the GANs on MNIST allowed me to see how well the model trains sooner.
 
 If you're using [FloydHub](https://www.floydhub.com/), set `data_dir` to "/input" and use the [FloydHub data ID](http://docs.floydhub.com/home/using_datasets/) "R5KrjnANiKVhLWAkpXhNBe".
 
@@ -33,7 +33,7 @@ helper.download_extract('celeba', data_dir)
 
 ## Explore the Data
 ### MNIST
-The [MNIST](http://yann.lecun.com/exdb/mnist/) dataset contains images of handwritten digits. You can view the first number of examples by changing `show_n_images`. 
+The [MNIST](http://yann.lecun.com/exdb/mnist/) dataset contains images of handwritten digits. It is possible to view the first number of examples by changing `show_n_images`. 
 
 
 ```python
@@ -63,7 +63,7 @@ pyplot.imshow(helper.images_square_grid(mnist_images, 'L'), cmap='gray')
 
 
 ### CelebA
-The [CelebFaces Attributes Dataset (CelebA)](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) dataset contains over 200,000 celebrity images with annotations.  Since we're going to be generating faces, the annotations will not be used.  It is possible to view the first number of examples by changing `show_n_images`.
+The [CelebFaces Attributes Dataset (CelebA)](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) dataset contains over 200,000 celebrity images with annotations.  Since faces were generated, the annotations were not be used.  It is possible to view the first number of examples by changing `show_n_images`.
 
 
 ```python
@@ -88,7 +88,7 @@ pyplot.imshow(helper.images_square_grid(mnist_images, 'RGB'))
 
 
 ## Preprocess the Data
-The values of the MNIST and CelebA dataset will be in the range of -0.5 to 0.5 of 28x28 dimensional images.  The CelebA images will be cropped to remove parts of the image that don't include a face, then resized down to 28x28.
+The values of the MNIST and CelebA dataset are be in the range of -0.5 to 0.5 of 28x28 dimensional images.  The CelebA images were cropped to remove parts of the image that don't include a face, then resized down to 28x28.
 
 The MNIST images are black and white images with a single [color channel](https://en.wikipedia.org/wiki/Channel_(digital_image%29) while the CelebA images have [3 color channels (RGB color channel)](https://en.wikipedia.org/wiki/Channel_(digital_image%29#RGB_Images).
 ## Build the Neural Network
@@ -101,7 +101,7 @@ The components necessary to build a GANs are the functions below:
 - `train`
 
 ### Check the Version of TensorFlow and Access to GPU
-This will check to make sure that the correct version of TensorFlow is in use and it has access to a GPU
+This check is to make sure that the correct version of TensorFlow is in use and it has access to a GPU
 
 
 ```python
@@ -131,12 +131,12 @@ else:
     
 
 ### Input
-Implement the `model_inputs` function to create TF Placeholders for the Neural Network. It should create the following placeholders:
+Implemented the `model_inputs` function to create TF Placeholders for the Neural Network. It creates the following placeholders:
 - Real input images placeholder with rank 4 using `image_width`, `image_height`, and `image_channels`.
 - Z input placeholder with rank 2 using `z_dim`.
 - Learning rate placeholder with rank 0.
 
-Return the placeholders in the following the tuple (tensor of real input images, tensor of z data)
+The placeholders are returned in the following the tuple (tensor of real input images, tensor of z data)
 
 
 ```python
@@ -167,7 +167,7 @@ tests.test_model_inputs(model_inputs)
     
 
 ### Discriminator
-Implement `discriminator` to create a discriminator neural network that discriminates on `images`.  This function should be able to reuse the variables in the neural network.  Use [`tf.variable_scope`](https://www.tensorflow.org/api_docs/python/tf/variable_scope) with a scope name of "discriminator" to allow the variables to be reused.  The function should return a tuple of (tensor output of the discriminator, tensor logits of the discriminator).
+Implemented `discriminator` to create a discriminator neural network that discriminates on `images`.  This function reuses the variables in the neural network.  Used [`tf.variable_scope`](https://www.tensorflow.org/api_docs/python/tf/variable_scope) with a scope name of "discriminator" to allow the variables to be reused.  The function returns a tuple of (tensor output of the discriminator, tensor logits of the discriminator).
 
 
 ```python
@@ -208,7 +208,7 @@ tests.test_discriminator(discriminator, tf)
     
 
 ### Generator
-Implement `generator` to generate an image using `z`. This function should be able to reuse the variables in the neural network.  Use [`tf.variable_scope`](https://www.tensorflow.org/api_docs/python/tf/variable_scope) with a scope name of "generator" to allow the variables to be reused. The function should return the generated 28 x 28 x `out_channel_dim` images.
+Implemented `generator` to generate an image using `z`. This function is able to reuse the variables in the neural network.  Used [`tf.variable_scope`](https://www.tensorflow.org/api_docs/python/tf/variable_scope) with a scope name of "generator" to allow the variables to be reused. The functionreturns the generated 28 x 28 x `out_channel_dim` images.
 
 
 ```python
@@ -252,7 +252,7 @@ tests.test_generator(generator, tf)
     
 
 ### Loss
-Implement `model_loss` to build the GANs for training and calculate the loss.  The function should return a tuple of (discriminator loss, generator loss).  Use the following functions you implemented:
+Implemented `model_loss` to build the GANs for training and calculate the loss.  The functionreturns a tuple of (discriminator loss, generator loss).  Used the previously implemented functions:
 - `discriminator(images, reuse=False)`
 - `generator(z, out_channel_dim, is_train=True)`
 
