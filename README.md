@@ -293,7 +293,7 @@ tests.test_model_loss(model_loss)
     
 
 ### Optimization
-Implement `model_opt` to create the optimization operations for the GANs. Use [`tf.trainable_variables`](https://www.tensorflow.org/api_docs/python/tf/trainable_variables) to get all the trainable variables.  Filter the variables with names that are in the discriminator and generator scope names.  The function should return a tuple of (discriminator training operation, generator training operation).
+Implemented `model_opt` to create the optimization operations for the GANs. Used [`tf.trainable_variables`](https://www.tensorflow.org/api_docs/python/tf/trainable_variables) to get all the trainable variables.  Filtered the variables with names that are in the discriminator and generator scope names.  The function returns a tuple of (discriminator training operation, generator training operation).
 
 
 ```python
@@ -326,7 +326,7 @@ tests.test_model_opt(model_opt, tf)
 
 ## Neural Network Training
 ### Show Output
-Use this function to show the current output of the generator during training. It will help you determine how well the GANs is training.
+Used this function to show the current output of the generator during training. It will help to determine how well the GANs is training.
 
 
 ```python
@@ -358,12 +358,12 @@ def show_generator_output(sess, n_images, input_z, out_channel_dim, image_mode):
 ```
 
 ### Train
-Implement `train` to build and train the GANs.  Use the following functions you implemented:
+Implemented `train` to build and train the GANs.  Using the following functions:
 - `model_inputs(image_width, image_height, image_channels, z_dim)`
 - `model_loss(input_real, input_z, out_channel_dim)`
 - `model_opt(d_loss, g_loss, learning_rate, beta1)`
 
-Use the `show_generator_output` to show `generator` output while you train. Running `show_generator_output` for every batch will drastically increase training time and increase the size of the notebook.  It's recommended to print the `generator` output every 100 batches.
+Used the `show_generator_output` to show `generator` output during the training. Running `show_generator_output` for every batch will drastically increase training time and increase the size of the notebook.  It's recommended to print the `generator` output every 100 batches.
 
 
 ```python
@@ -406,7 +406,7 @@ def train(epoch_count, batch_size, z_dim, learning_rate, beta1, get_batches, dat
 ```
 
 ### MNIST
-Test your GANs architecture on MNIST.  After 2 epochs, the GANs should be able to generate images that look like handwritten digits.  Make sure the loss of the generator is lower than the loss of the discriminator or close to 0.
+Tested GANs architecture on MNIST.  After 2 epochs, the GANs is able to generate images that look like handwritten digits.  The loss of the generator must be lower than the loss of the discriminator or close to 0.
 
 
 ```python
@@ -1020,7 +1020,7 @@ with tf.Graph().as_default():
     
 
 ### CelebA
-Run your GANs on CelebA.  It will take around 20 minutes on the average GPU to run one epoch.  You can run the whole epoch or stop when it starts to generate realistic faces.
+Ran GANs on CelebA.  It will take around 20 minutes on the average GPU to run one epoch.  It is possible to run the whole epoch or stop when it starts to generate realistic faces.
 
 
 ```python
@@ -1544,6 +1544,3 @@ with tf.Graph().as_default():
     Epoch 1/1... Discriminator Loss: 1.4567... Generator Loss: 0.8671
     Epoch 1/1... Discriminator Loss: 1.2559... Generator Loss: 0.7147
     
-
-### Submitting This Project
-When submitting this project, make sure to run all the cells before saving the notebook. Save the notebook file as "dlnd_face_generation.ipynb" and save it as a HTML file under "File" -> "Download as". Include the "helper.py" and "problem_unittests.py" files in your submission.
