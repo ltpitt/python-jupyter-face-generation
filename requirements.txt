@@ -28,6 +28,6 @@ tensorflow==2.9.3
 tk==8.5.18
 tqdm==4.15.0
 werkzeug==0.15.3
-wheel==0.29.0
+wheel==0.38.1
 wincertstore==0.2
 zlib==1.2.11
